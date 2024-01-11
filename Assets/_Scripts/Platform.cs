@@ -17,5 +17,9 @@ public class Platform : MonoBehaviour
                 rigid.velocity = velocity;
             }
         }
+        if (collision.gameObject.CompareTag("player"))
+        {
+            Debug.Log("a");
+        }
     }
 }

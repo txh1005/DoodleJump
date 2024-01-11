@@ -539,7 +539,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platformPrefab: {fileID: 7741238548366894351, guid: a36829922747f284487a4b33c57e5344, type: 3}
-  numberOfPlatforms: 50
+  numberOfPlatforms: 20
   levelWidth: 2
   minY: 0.2
   maxY: 1.5

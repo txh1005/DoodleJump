@@ -6,7 +6,7 @@ public class SpawnPlatform : MonoBehaviour
 {
     [SerializeField] private GameObject platformPrefab;
 
-    [SerializeField] private int numberOfPlatforms = 200;
+    [SerializeField] private int numberOfPlatforms = 20;
     [SerializeField] private float levelWidth = 2f;
     [SerializeField] private float minY = 0.2f;
     [SerializeField] private float maxY = 1.5f;
@@ -23,9 +23,5 @@ public class SpawnPlatform : MonoBehaviour
             spawnPosition.x = Random.Range(-levelWidth, levelWidth);
             Instantiate(platformPrefab, spawnPosition, Quaternion.identity);
         }
-    }
-    private void Update()
-    {
-        
     }
 }
