@@ -8,16 +8,21 @@ public class Platform : MonoBehaviour
 {
     [SerializeField] private float jumpForce;
     [SerializeField] private TypePlat typePlat;
+    [SerializeField] private float duration = 1;
+    private BaseState selectState;
+    private Dictionary<TypePlat, BaseState> stateDictionary;
     private void Start()
     {
+        selectState = new MovePlatform();
         switch (typePlat)
         {
             case TypePlat.Idle:
                 break;
             case TypePlat.MoveUp:
-                transform.DOMove(new Vector2(10, 0), 1).SetEase(Ease.Linear).SetLoops(-1, LoopType.Yoyo);
+                selectState.MovePlatformUp(this.transform, duration);
                 break;
-            case TypePlat.MoveDown:
+            case TypePlat.MoveRight:
+                selectState.MovePlatformRight(this.transform, duration);
                 break;
             default:
                 break;
@@ -37,10 +42,6 @@ public class Platform : MonoBehaviour
                     rigid.velocity = velocity;
                 }
             }
-        }
-        if (collision.gameObject.CompareTag("platform"))
-        {
-            Destroy(collision.gameObject);
         }
     }
 }
