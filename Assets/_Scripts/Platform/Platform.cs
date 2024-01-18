@@ -1,32 +1,30 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
+using UnityEditor;
+using static UnityEditorInternal.VersionControl.ListControl;
 
 public class Platform : MonoBehaviour
 {
     [SerializeField] private float jumpForce;
-    [SerializeField] private TypePlat typePlat;
     [SerializeField] private float duration = 1;
-    private BaseState selectState;
-    private Dictionary<TypePlat, BaseState> stateDictionary;
-    private void Start()
+    [SerializeField] private GameObject springPrefab;
+    [SerializeField] private bool isSpring;
+    [SerializeField] private bool isBroke;
+    private IMovable movement;
+
+    private GameObject listState;
+    private void Awake()
     {
-        selectState = new MovePlatform();
-        switch (typePlat)
-        {
-            case TypePlat.Idle:
-                break;
-            case TypePlat.MoveUp:
-                selectState.MovePlatformUp(this.transform, duration);
-                break;
-            case TypePlat.MoveRight:
-                selectState.MovePlatformRight(this.transform, duration);
-                break;
-            default:
-                break;
-        }
+        listState = GameObject.Find("ListState");
+    }
+    private void Start()
+    {/*
+        listState.GetComponent<ListStatePlatform>().listState[];*/
+        Random.Range(0, 2);
+        movement = GetComponent<IMovable>();
+        movement?.Move(transform, duration);
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
