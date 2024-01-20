@@ -4,14 +4,15 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEditor;
 using static UnityEditorInternal.VersionControl.ListControl;
+using System;
 
 public class Platform : MonoBehaviour
 {
+    public static event Action OnScoreChanged;
     [SerializeField] private float jumpForce;
     [SerializeField] private float duration = 1;
     [SerializeField] private GameObject springPrefab;
     [SerializeField] private bool isSpring;
-    [SerializeField] private bool isBroke;
     private IMovable movement;
 
     private GameObject listState;
@@ -22,7 +23,6 @@ public class Platform : MonoBehaviour
     private void Start()
     {/*
         listState.GetComponent<ListStatePlatform>().listState[];*/
-        Random.Range(0, 2);
         movement = GetComponent<IMovable>();
         movement?.Move(transform, duration);
     }
@@ -32,6 +32,7 @@ public class Platform : MonoBehaviour
         {
             if (collision.relativeVelocity.y <= 0)
             {
+                OnScoreChanged?.Invoke();
                 Rigidbody2D rigid = collision.collider.GetComponent<Rigidbody2D>();
                 if (rigid != null)
                 {
@@ -39,7 +40,7 @@ public class Platform : MonoBehaviour
                     velocity.y = jumpForce;
                     rigid.velocity = velocity;
                 }
-            }
+            }    
         }
     }
 }
