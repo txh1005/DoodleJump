@@ -621,6 +621,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreTxt: {fileID: 1106873018}
   player: {fileID: 311558235}
+  currentScore: 0
 --- !u!4 &1025766421
 Transform:
   m_ObjectHideFlags: 0

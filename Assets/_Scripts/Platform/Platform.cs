@@ -14,15 +14,21 @@ public class Platform : MonoBehaviour
     [SerializeField] private GameObject springPrefab;
     [SerializeField] private bool isSpring;
     private IMovable movement;
+    private Dictionary<int, IMovable> listState = new Dictionary<int, IMovable>();
 
-    private GameObject listState;
     private void Awake()
     {
-        listState = GameObject.Find("ListState");
+        MovingRightBehavior a = new MovingRightBehavior();
+        MovingUpBehavior b = new MovingUpBehavior();
+        IdleBehavior c = new IdleBehavior();
+        listState.Add(0, a);
+        listState.Add(1, b);
+        listState.Add(2, c);
     }
     private void Start()
-    {/*
-        listState.GetComponent<ListStatePlatform>().listState[];*/
+    {
+        int randomBehavior = UnityEngine.Random.Range(0, listState.Count);
+        gameObject.AddComponent(listState[randomBehavior].GetType());
         movement = GetComponent<IMovable>();
         movement?.Move(transform, duration);
     }
@@ -40,7 +46,7 @@ public class Platform : MonoBehaviour
                     velocity.y = jumpForce;
                     rigid.velocity = velocity;
                 }
-            }    
+            }
         }
     }
 }
