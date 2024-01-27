@@ -381,7 +381,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 311558235}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: efacadc759dcb024dae8ca5e177725d8, type: 2}
   m_CullingMode: 0
@@ -622,6 +622,16 @@ MonoBehaviour:
   scoreTxt: {fileID: 1106873018}
   player: {fileID: 311558235}
   currentScore: 0
+  skinList:
+  - {fileID: 21300000, guid: 762b01d480ba88342a70bc57c3ba8671, type: 3}
+  - {fileID: 21300000, guid: 2e5eba9b96c5b1247b2131f0bc44de37, type: 3}
+  - {fileID: 21300000, guid: 1e9aa56b15702524195267cb8e50995e, type: 3}
+  - {fileID: 21300000, guid: 5c31c30fda204b24fa7691c7a1a1b89e, type: 3}
+  - {fileID: 21300000, guid: dc572b4ce7f88b34083ac56abbab3511, type: 3}
+  - {fileID: 21300000, guid: 8c32d7bffb9f3e743a052398888f8564, type: 3}
+  - {fileID: 21300000, guid: 97d266ae9de7b7d4ea34603df17621db, type: 3}
+  - {fileID: 21300000, guid: 41d915eec26367d41bd37e75b43ea2db, type: 3}
+  - {fileID: 21300000, guid: 6fc3363ab565153478183a5fadb7556f, type: 3}
 --- !u!4 &1025766421
 Transform:
   m_ObjectHideFlags: 0

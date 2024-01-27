@@ -8,10 +8,12 @@ public class UIController : MonoBehaviour
     [SerializeField] private TMP_Text scoreTxt;
     [SerializeField] private GameObject player;
     [SerializeField] private int currentScore;
+    [SerializeField] private List<Sprite> skinList;
     // Start is called before the first frame update
     void Start()
     {
-
+        int indexSkin = PlayerPrefs.GetInt("skin_index");
+        player.GetComponent<SpriteRenderer>().sprite = skinList[indexSkin];
     }
     private void OnEnable()
     {
